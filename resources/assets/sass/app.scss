@@ -1,0 +1,125 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+// @import "variables";
+
+// Bootstrap
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+    font-size: 12px;
+    font-family: "Raleway";
+    color: #666;
+}
+#app {
+    height: 100%;
+    min-height: 100%;
+    .pagination li.active {
+        background-color: #546E7A;
+    }
+}
+nav {
+    background-color: #546E7A;
+    .nav-wrapper {
+        background-color: #546E7A;
+        .brand-logo {
+            margin-left: 1rem;
+        }
+        li:nth-child(1) {
+            margin-left: 3rem;
+        }
+
+        .dropdown-content {
+            li:nth-child(1)  {
+                margin-left: 0;
+            } 
+            li {
+                padding: 0.3rem;
+                i {
+                    margin: 0 4px 0 0;
+                }
+            }
+            a {
+                display: inline-block;
+            }
+        }
+    }
+
+    a {
+        transition: all ease .2s;
+        &:hover {
+            color: #eee;
+            text-decoration: none;
+            opacity: 0.7;
+        }
+    }
+}
+
+a {
+    color: #444;
+    transition: all ease .2s;
+    &:hover {
+        color: #444;
+        text-decoration: none;
+        opacity: 0.7;
+    }
+}
+
+.container {
+    margin-top: 20px;
+    width: 90%;
+}
+
+textarea.materialize-textarea:not([readonly]).has-error,
+input[type=text].has-error {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+    margin-bottom: 4px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    li {
+        height: 30px;
+        width: 30px;
+    }
+    .active, .disabled {
+        span {
+            font-size: 1.2rem;
+            line-height: 30px;
+        }
+    }
+
+    .disabled {
+        span {
+            color: #444;
+        }
+    }
+
+    .active {
+        span {
+            color: #fff;
+        }
+    }
+}
+
+.margin-right {
+    margin-right: 7px;
+}
+
+.underline {
+    text-decoration: underline;
+}
