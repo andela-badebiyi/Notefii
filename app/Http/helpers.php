@@ -1,5 +1,6 @@
 <?php 
 use Illuminate\Support\Facades\Auth;
+use App\Notifier\MailNotification;
 use App\Notes;
 
 class BdHelpers {
@@ -18,6 +19,13 @@ class BdHelpers {
     public static function slugify($text)
     {
         return str_replace(' ', '-', $text);
+    }
+
+    public static function sendRegistrationMail($user) 
+    {
+        //send Notification
+        $notification = new MailNotification($user);
+        $notification->send(); 
     }
 }
 ?>
