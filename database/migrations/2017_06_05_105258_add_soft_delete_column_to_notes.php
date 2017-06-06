@@ -25,6 +25,8 @@ class AddSoftDeleteColumnToNotes extends Migration
      */
     public function down()
     {
-        $table->dropColumn('deleted_at');
+        Schema::table('notes', function(Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
     }
 }

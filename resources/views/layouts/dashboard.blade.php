@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col s4">
             <div class="card-panel white sidebar">
-                <h4 class="center card-panel">Menu Options</h4>
+                <h4 class="center card-panel rounded-border">Menu Options</h4>
                 <ul>
                     <li class="left-align"><i class="fa fa-list-alt"></i> <a href="{{ route('home') }}">My Notes ({{ BdHelpers::getNotesCount() }})</a></li>
                     <li class="left-align"><i class="fa fa-pencil"></i> <a href="{{ route('create') }}">Create Note</a></li>
@@ -52,6 +52,10 @@
 
         .sidebar ul li a {
 
+        }
+
+        .rounded-border {
+            border-radius: 10px;
         }
     </style>
 @endsection

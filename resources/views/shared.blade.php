@@ -2,7 +2,7 @@
 @section('sub_content')
     <div class="row">
         <div class="col s12">
-            <p class="right-align underline">My Notes</p>
+            <p class="right-align underline">Shared Notes</p>
         </div>
         @foreach($sharedNotes as $note)
             <div class="col s4">

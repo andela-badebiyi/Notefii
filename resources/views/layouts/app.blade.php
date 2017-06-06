@@ -41,12 +41,22 @@
                         <li><a class="dropdown-button" href="{{ route('register') }}" data-activates="dropdown1">{{ Auth::user()->name }}<i class="fa fa-caret-down right"></i></a></li>
                     @endif
                 </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">Javascript</a></li>
+                    <li><a href="mobile.html">Mobile</a></li>
+                </ul>
             </div>
         </nav>
         @yield('content')
     </div>
 
     <!-- Scripts -->
-    <!--<script src="{{ asset('js/app.js') }}"></script>-->
+    <script>
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+        });
+    </script>
 </body>
 </html>

@@ -101,6 +101,11 @@ class NoteController extends Controller
         }
 
         $userToShareNoteWith->sharedNotes()->attach($note_id);
+        \BdHelpers::sendNotification('shared', [
+            'email' => $userToShareNoteWith->email,
+            'sharer' => "{$request->user()->name} ({$request->user()->email})",
+            'name' => $userToShareNoteWith->name
+        ]);
 
         return redirect()->route('home')->with('message', 'Note Successfully Shared');
     }
@@ -112,9 +117,5 @@ class NoteController extends Controller
             ->forceDelete();
 
         return redirect()->route('trashed');
-    }
-
-    public function share() {
-
     }
 }

@@ -62,14 +62,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        \BdHelpers::sendNotification('register', $this->getMailData($data)); 
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-
-        \BdHelpers::sendRegistrationMail($user); 
         
         return $user;
+    }
+
+    private function getMailData($data) {
+        return [
+            'name' => $data['name'],
+            'email' => $data['email']
+        ];
     }
 }

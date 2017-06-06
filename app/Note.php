@@ -23,7 +23,7 @@ class Note extends Model
     }
 
     public function sharedWith() {
-        return $this->belongsToMany(Note::class)
+        return $this->belongsToMany(User::class)
             ->withTimestamps();;
     }
 }

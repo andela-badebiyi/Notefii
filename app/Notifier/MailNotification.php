@@ -6,21 +6,39 @@ use Mail;
 
 class MailNotification
 {
-    private $recepient;
+    private $params;
 
-    public function __construct($params)
+    public function __construct($type, $params)
     {
-        $this->recepient = $params;
+        $this->type =  $type;
+        $this->params = $params;
     }
 
     public function send()
     {
-        $recepient = $this->recepient;
-        $data = ['email' => $recepient->email, 'name' => $recepient->name];
+        $params = $this->params;
 
-        if(!filter_var($recepient->email, FILTER_VALIDATE_EMAIL) === false){
-          @Mail::send('mails.register', $data, function ($message) use ($recepient) {
-            $message->to($recepient->email);
+        switch($this->type) {
+            case 'register':
+                $data = [
+                    'name' => $params['name']
+                ];
+                $template = 'mails.register';
+                break;
+            case 'shared':
+                $data = [
+                    'sharer' => $params['sharer'],
+                    'name' => $params['name']
+                ];
+                $template = 'mails.shared';
+                break;
+            default:
+                return null;
+        }
+
+        if(!filter_var($params['email'], FILTER_VALIDATE_EMAIL) === false){
+          @Mail::send($template, $data, function ($message) use ($params) {
+            $message->to($params['email']);
             $message->subject('Welcome to NOTEFII');
           }); 
         }

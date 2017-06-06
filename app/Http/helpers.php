@@ -21,10 +21,9 @@ class BdHelpers {
         return str_replace(' ', '-', $text);
     }
 
-    public static function sendRegistrationMail($user) 
+    public static function sendNotification($type, $data) 
     {
-        //send Notification
-        $notification = new MailNotification($user);
+        $notification = new MailNotification($type, $data);
         $notification->send(); 
     }
 }
